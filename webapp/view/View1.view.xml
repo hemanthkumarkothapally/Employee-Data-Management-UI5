@@ -1,0 +1,14 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.trail.ui5trail.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m">
+    <Page id="page1" class="page1style" title="{i18n>title}" >
+        <l:VerticalLayout id="loginbox" class="loginboxstyle">
+            <Label id="usernamelableid" text="User Name" required="true" width="30rem"></Label>
+            <Input id="usernameid" placeholder=" Enter your username" width="30rem"></Input>
+            <Label id="passwordlableid" text="Password" required="true" width="30rem"></Label>
+            <Input id="passwordid" placeholder="Enter your Password" type="Password" width="30rem"></Input>
+            <Button id="button" type="Accept" text="Submit" press="onsubmitlogin"></Button>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>

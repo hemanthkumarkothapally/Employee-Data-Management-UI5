@@ -1,0 +1,10 @@
+/* Enter your custom styles here */
+.page1style{
+    background-image: radial-gradient(rgb(173, 173, 247),rgb(235, 223, 223),rgb(122, 253, 122));
+}
+.loginboxstyle{
+    border-style: solid;
+    border-radius: 1px;
+    padding: 20px;
+    margin-left: 25%;
+}
