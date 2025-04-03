@@ -1,0 +1,143 @@
+<mvc:View xmlns:table="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    controllerName="com.trail.ui5trail.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+>
+    <Page
+        class="page1style"
+        title="Employee form"
+    >
+        <form:SimpleForm class="simpleformclass" backgroundDesign="Transparent" editable="true" width="95%" >
+            <form:content >
+                <Label
+                    text="Tittle"
+                    required="true"
+                />
+                <Text id="formtexttittleID" text="{/employeedata/tittle}" visible="{/displayitems}"></Text>
+                <ComboBox
+                    placeholder="sellect your tittle"
+                    width="20%"
+                    id="formtittleID"
+                    visible="{= !${/displayitems}}"
+                >
+                    <items >
+                        <core:Item
+                            key="01"
+                            text="Mr"
+                        />
+                        <core:Item
+                            key="02"
+                            text="Miss"
+                        />
+                    </items>
+                </ComboBox>
+                <Label
+                    text="First Name"
+                    required="true"
+                />
+                <Text id="formtextfirstnameID" text="{/employeedata/firstname}" visible="{/displayitems}"></Text>
+                <Input
+                    id="formfirstnameID"
+                    placeholder="Enter your first name"
+                    visible="{= !${/displayitems}}"
+                />
+                <Label
+                    text="Last Name"
+                    required="true"
+                />
+                <Text id="formtextlastnameID" text="{/employeedata/lastname}" visible="{= ${/displayitems}}"></Text>
+                <Input
+                    id="formlastnameID"
+                    placeholder="Enter your last name"
+                    visible="{= !${/displayitems}}"
+                />
+                <Label
+                    text="BirthDate"
+                    required="true"
+                />
+                <Text id="formtextbirthdateID" text="{/employeedata/birthdate}" visible="{/displayitems}" ></Text>
+                <DatePicker  id="formbirthdateID" visible="{= !${/displayitems}}"/>
+                <Label
+                    text="Address"
+                    required="true"
+                />
+                <Text id="formtextaddressID" text="{= ${/employeedata/address}+', '+${/employeedata/city} +', '+ ${/employeedata/country}}" visible="{/displayitems}" ></Text>
+                <Input
+                    id="formaddressID"
+                    placeholder="address"
+                    visible="{= !${/displayitems}}"
+                />
+                <Input
+                    id="formcityID"
+                    placeholder="City"
+                    visible="{= !${/displayitems}}"
+                />
+                <Input
+                    id="formcountryID"
+                    placeholder="Country"
+                    visible="{= !${/displayitems}}"
+                />
+                <Label
+                    text="Department"
+                    required="true"
+                />
+                <Text id="formtextdepartmentID" text="{/employeedata/department}" visible="{/displayitems}"></Text>
+                <Input
+                    id="formdepartmentID"
+                    placeholder="Enter your department"
+                    visible="{= !${/displayitems}}"
+                />
+                <Label
+                    text="HireDate"
+                    required="true"
+                />
+                <Text id="formtexthiredateID" text="{/employeedata/hiredate}" visible="{/displayitems}"></Text>
+                <DatePicker  id="formhiredateID" visible="{= !${/displayitems}}"/>
+                <l:HorizontalLayout>
+                    <Button
+                    id="formsavebuttonID"
+                        class="buttonclass"
+                        text="save"
+                        icon="sap-icon://notes"
+                        type="Success"
+                        press="onsaveform"
+                        visible="true"
+                    />
+                    <Button
+                    id="formeditbuttonID"
+                        class="buttonclass"
+                        text="Edit"
+                        icon="sap-icon://cancel"
+                        type="Attention"
+                        press="oneditform"
+                        visible="false"
+                    />
+                </l:HorizontalLayout>
+            </form:content>
+        </form:SimpleForm>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button
+                        id="submitbuttonID"
+                        text="Submit"
+                        icon="sap-icon://save"
+                        type="Success"
+                        press="onSubmitform"
+                        enabled="false"
+                    />
+                    <Button
+                        text="Table"
+                        icon="sap-icon://table-view"
+                        type="Emphasized"
+                        press="onGotoTable"
+                    />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

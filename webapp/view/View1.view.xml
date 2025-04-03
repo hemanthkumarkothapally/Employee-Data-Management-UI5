@@ -1,13 +1,20 @@
-<mvc:View xmlns:form="sap.ui.layout.form" controllerName="com.trail.ui5trail.controller.View1"
+<mvc:View xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" controllerName="com.trail.ui5trail.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
     xmlns="sap.m">
     <Page id="page1" class="page1style" title="{i18n>title}" >
         <l:VerticalLayout id="loginbox" class="loginboxstyle">
+            <Title text="log in" level="H6"></Title>
             <Label id="usernamelableid" text="User Name" required="true" width="30rem"></Label>
-            <Input id="usernameid" placeholder=" Enter your username" width="30rem"></Input>
+            <Input id="usernameid" placeholder=" Enter your username" width="30rem" ></Input>
             <Label id="passwordlableid" text="Password" required="true" width="30rem"></Label>
-            <Input id="passwordid" placeholder="Enter your Password" type="Password" width="30rem"></Input>
+            <Input id="passwordid" placeholder="Enter your Password "  type="Password" width="30rem" showClearIcon="true">
+            </Input>
+            <ObjectAttribute id="randomcaptchaId" title="CAPTCHA " text="{/captcha}" textDirection="Inherit" >
+            </ObjectAttribute>
+            <Input id="captchaId" placeholder="enter captcha" width="10rem"></Input>
+            <CheckBox text="Remenber me.."></CheckBox>
+            
             <Button id="button" type="Accept" text="Submit" press="onsubmitlogin"></Button>
         </l:VerticalLayout>
     </Page>

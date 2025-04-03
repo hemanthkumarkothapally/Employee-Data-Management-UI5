@@ -8,3 +8,14 @@
     padding: 20px;
     margin-left: 25%;
 }
+.detailsclass{
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+}
+.buttonclass{
+    margin: 2px;
+}
+.simpleformclass{
+    background-color: rgb(194, 252, 252);
+    margin: 2rem;
+}

@@ -28,4 +28,25 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: false
+        backend:
+          - url: https://services.odata.org/
+            authenticationType: NoAuthentication
+            path: /v2
+          - url: https://ba291dc8trial-dev-employee-data-management-srv.cfapps.us10-001.hana.ondemand.com/
+            authenticationType: NoAuthentication
+            path: /odata
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: v4/northwind/northwind.svc
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+          - urlPath: /odata/v4/edmservice
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+        annotations: []
