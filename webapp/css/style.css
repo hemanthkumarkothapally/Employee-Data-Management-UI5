@@ -2,6 +2,10 @@
 .page1style{
     background-image: radial-gradient(rgb(173, 173, 247),rgb(235, 223, 223),rgb(122, 253, 122));
 }
+.page3style{
+    background-color: blanchedalmond;
+    
+}
 .loginboxstyle{
     border-style: solid;
     border-radius: 1px;
@@ -18,4 +22,7 @@
 .simpleformclass{
     background-color: rgb(194, 252, 252);
     margin: 2rem;
+}
+.verticalform{
+    padding: 10px;
 }

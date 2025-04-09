@@ -1,4 +1,6 @@
-<mvc:View xmlns:filterbar="sap.ui.comp.filterbar" xmlns:core="sap.ui.core"
+<mvc:View
+    xmlns:filterbar="sap.ui.comp.filterbar"
+    xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
     xmlns:form="sap.ui.layout.form"
     controllerName="com.trail.ui5trail.controller.View2"
@@ -23,47 +25,69 @@
             <f:DynamicPageHeader
                 pinnable="true"
                 backgroundDesign="Transparent"
-                
             >
-                    <l:VerticalLayout>
-                        <ObjectAttribute
-                            title="Company"
-                            text="CY Techies"
-                        />
-                        <ObjectAttribute
-                            title="Branches"
-                            text="India,Netherlands"
-                        />
-                        <ObjectAttribute
-                            title="Founder"
-                            text="Harish Yerra"
-                        />
-                    </l:VerticalLayout>
-                    <ToolbarSpacer ></ToolbarSpacer>
-                    <l:VerticalLayout>
-                        <ObjectAttribute title="Domain" text="SAP BTP"/>
-                    </l:VerticalLayout>
-                                    <ToolbarSpacer ></ToolbarSpacer>
-                <SearchField liveChange="onSearch"></SearchField>
-                <ComboBox id="searchfilter" items="{path:'/Employees'}"> 
+                <l:VerticalLayout>
+                    <ObjectAttribute
+                        title="Company"
+                        text="CY Techies"
+                    />
+                    <ObjectAttribute
+                        title="Branches"
+                        text="India,Netherlands"
+                    />
+                    <ObjectAttribute
+                        title="Founder"
+                        text="Harish Yerra"
+                    />
+                </l:VerticalLayout>
+                <ToolbarSpacer />
+                <l:VerticalLayout>
+                    <ObjectAttribute
+                        title="Domain"
+                        text="SAP BTP"
+                    />
+                </l:VerticalLayout>
+                <ToolbarSpacer />
+                <!-- <ComboBox id="searchfilter" items="{path:'/Employees'}" selectionChange="onselectingname"> 
                 <core:Item key="{ID}" text="{FirstName}"></core:Item>
-                </ComboBox>
-                <Button icon="sap-icon://employee-lookup" press="onSearch"></Button>
-                <filterbar:FilterBar search="onSearch"></filterbar:FilterBar>
+                </ComboBox> -->
+                <f:content>
+                <filterbar:FilterBar
+                    id="filterbar" persistencyKey="myPersKey" useToolbar="false" search="ongoSearch" 
+                >
+                    <filterbar:filterGroupItems>
+                        <filterbar:FilterGroupItem
+                            name="Name"
+                            label="Name"
+                            groupName="group1"
+                            visibleInFilterBar="true"
+                        >
+                            <filterbar:control>
+                                <ComboBox
+                                    id="searchfilter"
+                                    items="{path:'/Employees'}"
+                                >
+                                    <core:Item
+                                        key="{ID}"
+                                        text="{FirstName}"
+                                    />
+                                </ComboBox>
+                            </filterbar:control>
+                        </filterbar:FilterGroupItem>
+                    </filterbar:filterGroupItems>
+                </filterbar:FilterBar>
+                </f:content>
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
             <Table
-            id="employeetable"
+                id="employeetable"
                 items="{path:'/Employees'}"
                 headerText="Employees ({= ${Employees}.length })"
-                
-                growing="true"
-                growingThreshold="10"
                 mode="SingleSelectMaster"
                 selectionChange="onemployeeselection"
             >
-                <columns >
+                <columns>
                     <Column>
                         <Text text="EmployeeID" />
                     </Column>
@@ -92,12 +116,17 @@
                         <Text text="HireDate" />
                     </Column>
                 </columns>
-                <items >
-                    <ColumnListItem type="Navigation" press="onnavtoemp">
-                        <cells >
+                <items>
+                    <ColumnListItem
+                        type="Navigation"
+                    >
+                        <cells>
                             <Text text="{ID}" />
-                            <Text
+                            <!-- <Text
                                 text="{=${Title}+' . '+${LastName}+' '+${FirstName}}"
+                            /> -->
+                            <Text
+                                text="{FirstName}"
                             />
                             <Text text="{BirthDate}" />
                             <Text
@@ -110,13 +139,16 @@
                 </items>
             </Table>
         </f:content>
-        <f:footer><Bar><contentRight>
-        <Button
+        <f:footer>
+            <Bar>
+                <contentRight>
+                    <Button
                         icon="sap-icon://add-employee"
                         type="Emphasized"
                         press="onAddemployee"
                     />
-                    </contentRight>
-        </Bar></f:footer>
+                </contentRight>
+            </Bar>
+        </f:footer>
     </f:DynamicPage>
 </mvc:View>

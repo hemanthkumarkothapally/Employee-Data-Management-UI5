@@ -19,6 +19,10 @@ sap.ui.define([
                         password: "anil123"
                     },
                     {
+                        username: "chandan",
+                        password: "chandan123"
+                    },
+                    {
                         username: "manasa",
                         password: "manasa123"
                     },

@@ -10,15 +10,15 @@ sap.ui.define([
             let oData = new sap.ui.model.json.JSONModel({
                 displayitems: false,
                 employeedata: {
-                    tittle: "",
-                    firstname: "",
-                    lastname: "",
-                    birthdate: "",
-                    address: "",
-                    city: "",
-                    country: "",
-                    department: "",
-                    hiredate: ""
+                    Title: "",
+                    FirstName: "",
+                    LastName: "",
+                    BirthDate: "",
+                    Address: "",
+                    City: "",
+                    Country: "",
+                    Department: "",
+                    HireDate: ""
                 }
             })
             this.getView().setModel(oData);
@@ -43,15 +43,15 @@ sap.ui.define([
                 let employeeData = oView.getModel().getProperty("/employeedata");
                 let displayitems= oView.getModel().getProperty("/displayitems");
 
-                employeeData.tittle = formtittle;
-                employeeData.firstname = formfirstname;
-                employeeData.lastname = formlastname;
-                employeeData.birthdate = formbirthdate;
-                employeeData.address = formaddress;
-                employeeData.city = formcity;
-                employeeData.country = formcountry;
-                employeeData.department = formdepartment;
-                employeeData.hiredate = formhiredate;
+                employeeData.Title = formtittle;
+                employeeData.FirstName = formfirstname;
+                employeeData.LastName = formlastname;
+                employeeData.BirthDate = formbirthdate;
+                employeeData.Address = formaddress;
+                employeeData.City = formcity;
+                employeeData.Country = formcountry;
+                employeeData.Department = formdepartment;
+                employeeData.HireDate = formhiredate;
 
                 oView.getModel().setProperty("/employeedata", employeeData);
                 oView.byId("submitbuttonID").setEnabled(!displayitems);
@@ -72,7 +72,20 @@ sap.ui.define([
 
         },
         onSubmitform: function(){
-
+            let newemploye = this.getView().getModel().oData.employeedata;
+            $.ajax({
+                url:"https://ba291dc8trial-dev-employee-data-management-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/edmservice/Employees",
+                method:"POST",
+                contentType:"application/json",
+                data:JSON.stringify(newemploye),
+                success: function(data) {
+                    MessageToast.show("Successfully submitted data");
+                  },
+                  error: function(error) {
+                    MessageToast.show("Error submitting data");
+                  }
+            })
+            console.log(newemploye);
         },
         onGotoTable: function () {
             this.getOwnerComponent().getRouter().navTo("TargetView2");
