@@ -84,8 +84,6 @@
                 id="employeetable"
                 items="{path:'/Employees'}"
                 headerText="Employees ({= ${Employees}.length })"
-                mode="SingleSelectMaster"
-                selectionChange="onemployeeselection"
             >
                 <columns>
                     <Column>
@@ -118,7 +116,9 @@
                 </columns>
                 <items>
                     <ColumnListItem
-                        type="Navigation"
+                    type="DetailAndActive"
+                    detailPress="onemployeepress"
+
                     >
                         <cells>
                             <Text text="{ID}" />

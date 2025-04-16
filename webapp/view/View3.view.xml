@@ -1,4 +1,5 @@
-<mvc:View xmlns:table="sap.ui.table"
+<mvc:View
+    xmlns:table="sap.ui.table"
     xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
     xmlns:form="sap.ui.layout.form"
@@ -11,21 +12,20 @@
         class="page3style"
         title="Employee form"
         backgroundDesign="Transparent"
-        >
-        <l:VerticalLayout class="verticalform" >
-            <HBox alignItems="Center" alignContent="SpaceAround" columnGap="2rem">
-                <Label
-                    text="Tittle :"
+    >
+        
+            <form:SimpleForm class="employeeform" visible="{= !${/displayitems}}" layout="ResponsiveGridLayout" singleContainerFullSize="false" editable="true" width="98%">
+            <form:content>
+             <Label
+                    text="Tittle "
                     required="true"
                 />
-                <Text id="formtexttittleID" text="{/employeedata/Title}" visible="{/displayitems}"></Text>
                 <ComboBox
                     placeholder="sellect your tittle"
                     width="20%"
                     id="formtittleID"
-                    visible="{= !${/displayitems}}"
                 >
-                    <items >
+                    <items>
                         <core:Item
                             key="01"
                             text="Mr"
@@ -36,46 +36,240 @@
                         />
                     </items>
                 </ComboBox>
-                </HBox>
-                <HBox alignItems="Center" alignContent="SpaceAround" columnGap="2rem" >
+                <Label
+                    text="First Name "
+                    required="true"
+                />
+                <Input
+                    id="formfirstnameID"
+                    placeholder="Enter your first name"
+                    value="{/employeedata/FirstName}"
+                />
+                <Label
+                    text="Last Name "
+                    required="true"
+                />
+                <Input
+                    id="formlastnameID"
+                    placeholder="Enter your last name"
+                />
+                <Label
+                    text="BirthDate "
+                    required="true"
+                />
+                <DatePicker
+                    id="formbirthdateID"
+                    displayFormat="yyyy-MM-dd"
+                    valueFormat="yyyy-MM-dd"
+                    value="{/employeedata/BirthDate}"
+                />
+                <Label
+                    text="Address "
+                    required="true"
+                />
+                <Input
+                    id="formaddressID"
+                    placeholder="address"
+                />
+                <Input
+                    id="formcityID"
+                    placeholder="City"                />
+                <Input
+                    id="formcountryID"
+                    placeholder="Country"
+                />
+                <Label
+                    text="Department "
+                    required="true"
+                />
+                <Input
+                    id="formdepartmentID"
+                    placeholder="Enter your department"
+                />
+                <Label
+                    text="HireDate "
+                    required="true"
+                />
+                <DatePicker
+                    id="formhiredateID"
+                    displayFormat="yyyy-MM-dd"
+                    valueFormat="yyyy-MM-dd"
+                    value="{/employeedata/HireDate}"
+                />
+            </form:content>
+            </form:SimpleForm>
+            <form:SimpleForm class="employeeform" layout="ResponsiveGridLayout" singleContainerFullSize="false" visible="{/displayitems}" width="98%">
+            <form:content>
+             <Label
+                    text="Tittle :"
+                    required="true"
+                />
+                <Text
+                    text="{/employeedata/Title}"                />
+                <Label
+                    text="First Name"
+                    required="true"
+                />
+                <Text
+                    text="{/employeedata/FirstName}"
+                />
+                <Label
+                    text="Last Name"
+                    required="true"
+                />
+                <Text
+                    text="{/employeedata/LastName}"
+                />
+                <Label
+                    text="BirthDate"
+                    required="true"
+                />
+                <Text
+                    text="{/employeedata/BirthDate}"
+                />
+                <Label
+                    text="Address "
+                    required="true"
+                />
+                <Text
+                    text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}"
+                />
+                <Label
+                    text="Department "
+                    required="true"
+                />
+                <Text
+                    text="{/employeedata/Department}"
+                />
+                <Label
+                    text="HireDate "
+                    required="true"
+                />
+                <Text
+                    text="{/employeedata/HireDate}"
+                />
+            </form:content>
+            </form:SimpleForm>
+            <!-- <HBox
+                alignItems="Center"
+                alignContent="SpaceAround"
+                columnGap="2rem"
+            >
+                <Label
+                id="tittleID"
+                    text="Tittle :"
+                    required="true"
+                />
+                <Text
+                    id="formtexttittleID"
+                    text="{/employeedata/Title}"
+                    visible="{/displayitems}"
+                />
+                <ComboBox
+                    placeholder="sellect your tittle"
+                    width="20%"
+                    id="formtittleID"
+                    visible="{= !${/displayitems}}"
+                >
+                    <items>
+                        <core:Item
+                            key="01"
+                            text="Mr"
+                        />
+                        <core:Item
+                            key="02"
+                            text="Miss"
+                        />
+                    </items>
+                </ComboBox>
+                <ObjectAttribute title="First Name " text="{/employeedata/Title}" visible="true"></ObjectAttribute>
+
+            </HBox>
+            <HBox
+                alignItems="Center"
+                alignContent="SpaceAround"
+                columnGap="2rem"
+            >
                 <Label
                     text="First Name :"
                     required="true"
                 />
-                <Text id="formtextfirstnameID" text="{/employeedata/FirstName}" visible="{/displayitems}"></Text>
+                <Text
+                    id="formtextfirstnameID"
+                    text="{/employeedata/FirstName}"
+                    visible="{/displayitems}"
+                />
                 <Input
                     id="formfirstnameID"
                     placeholder="Enter your first name"
                     visible="{= !${/displayitems}}"
-                    
                 />
-                </HBox>
-                <HBox alignItems="Center" alignContent="SpaceAround" columnGap="2rem" >
+                <ObjectAttribute title="First Name " text="{/employeedata/FirstName}" visible="true"></ObjectAttribute>
+            </HBox>
+            <HBox
+                alignItems="Center"
+                alignContent="SpaceAround"
+                columnGap="2rem"
+            >
                 <Label
                     text="Last Name :"
                     required="true"
                 />
-                <Text id="formtextlastnameID" text="{/employeedata/LastName}" visible="{= ${/displayitems}}"></Text>
+                <Text
+                    id="formtextlastnameID"
+                    text="{/employeedata/LastName}"
+                    visible="{= ${/displayitems}}"
+                />
                 <Input
                     id="formlastnameID"
                     placeholder="Enter your last name"
                     visible="{= !${/displayitems}}"
                 />
-                </HBox>
-                <HBox alignItems="Center" alignContent="SpaceAround" columnGap="2rem" >
+                <ObjectAttribute title="First Name " text="{/employeedata/LastName}" visible="true"></ObjectAttribute>
+
+            </HBox>
+            <HBox
+                alignItems="Center"
+                alignContent="SpaceAround"
+                columnGap="2rem"
+            >
                 <Label
                     text="BirthDate :"
                     required="true"
                 />
-                <Text id="formtextbirthdateID" text="{/employeedata/BirthDate}" visible="{/displayitems}" ></Text>
-                <DatePicker  id="formbirthdateID" visible="{= !${/displayitems}}"/>
-                </HBox>
-                <HBox alignItems="Center" alignContent="SpaceAround" columnGap="2rem" >
+                <Text
+                    id="formtextbirthdateID"
+                    text="{/employeedata/BirthDate}"
+                    visible="{/displayitems}"
+                />
+                <DatePicker
+                    id="formbirthdateID"
+                    visible="{= !${/displayitems}}"
+                    value="{
+						'path':'/employeedata/BirthDate',
+						'type':'sap.ui.model.type.Date',
+						'formatOptions': {
+							'pattern': 'yyyy-MM-dd'
+						}
+					}"
+                />
+                <ObjectAttribute title="First Name " text="{/employeedata/BirthDate}" visible="true"></ObjectAttribute>
+
+            </HBox>
+            <HBox
+                alignItems="Center"
+                alignContent="SpaceAround"
+                columnGap="2rem"
+            >
                 <Label
                     text="Address :"
                     required="true"
                 />
-                <Text id="formtextaddressID" text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}" visible="{/displayitems}" ></Text>
+                <Text
+                    id="formtextaddressID"
+                    text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}"
+                    visible="{/displayitems}"
+                />
                 <Input
                     id="formaddressID"
                     placeholder="address"
@@ -91,48 +285,78 @@
                     placeholder="Country"
                     visible="{= !${/displayitems}}"
                 />
-                </HBox>
-                <HBox alignItems="Center" alignContent="SpaceAround" columnGap="2rem" >
+                <ObjectAttribute title="First Name " text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}" visible="true"></ObjectAttribute>
+
+            </HBox>
+            <HBox
+                alignItems="Center"
+                alignContent="SpaceAround"
+                columnGap="2rem"
+            >
                 <Label
                     text="Department :"
                     required="true"
                 />
-                <Text id="formtextdepartmentID" text="{/employeedata/Department}" visible="{/displayitems}"></Text>
+                <Text
+                    id="formtextdepartmentID"
+                    text="{/employeedata/Department}"
+                    visible="{/displayitems}"
+                />
                 <Input
                     id="formdepartmentID"
                     placeholder="Enter your department"
                     visible="{= !${/displayitems}}"
                 />
-                </HBox>
-                <HBox alignItems="Center" alignContent="SpaceAround" columnGap="2rem">
+                <ObjectAttribute title="First Name " text="{/employeedata/Department}" visible="true"></ObjectAttribute>
+
+            </HBox>
+            <HBox
+                alignItems="Center"
+                alignContent="SpaceAround"
+                columnGap="2rem"
+            >
                 <Label
                     text="HireDate :"
                     required="true"
                 />
-                <Text id="formtexthiredateID" text="{/employeedata/HireDate}" visible="{/displayitems}"></Text>
-                <DatePicker  id="formhiredateID" visible="{= !${/displayitems}}"/>
-                </HBox>
-                <l:HorizontalLayout>
-                    <Button
+                <Text
+                    id="formtexthiredateID"
+                    text="{/employeedata/HireDate}"
+                    visible="{/displayitems}"
+                />
+                <DatePicker
+                    id="formhiredateID"
+                    visible="{= !${/displayitems}}"
+                    value="{
+						'path':'/employeedata/HireDate',
+						'type':'sap.ui.model.type.Date',
+						'formatOptions': {
+							'pattern': 'yyyy-MM-dd'
+						}
+					}"
+                />
+                <ObjectAttribute title="First Name "  text="{/employeedata/HireDate}" visible="true"></ObjectAttribute>
+            </HBox> -->
+            <l:HorizontalLayout>
+                <Button
                     id="formsavebuttonID"
-                        class="buttonclass"
-                        text="save"
-                        icon="sap-icon://notes"
-                        type="Success"
-                        press="onsaveform"
-                        visible="true"
-                    />
-                    <Button
+                    class="buttonclass"
+                    text="save"
+                    icon="sap-icon://notes"
+                    type="Success"
+                    press="onsaveform"
+                    visible="true"
+                />
+                <Button
                     id="formeditbuttonID"
-                        class="buttonclass"
-                        text="Edit"
-                        icon="sap-icon://cancel"
-                        type="Attention"
-                        press="oneditform"
-                        visible="false"
-                    />
-                </l:HorizontalLayout>
-        </l:VerticalLayout>
+                    class="buttonclass"
+                    text="Edit"
+                    icon="sap-icon://cancel"
+                    type="Attention"
+                    press="oneditform"
+                    visible="false"
+                />
+            </l:HorizontalLayout>
         <footer>
             <Bar>
                 <contentRight>

@@ -73,8 +73,10 @@ sap.ui.define([
         },
         onSubmitform: function(){
             let newemploye = this.getView().getModel().oData.employeedata;
+            var sBaseUrl = sap.ui.require.toUrl("com/trail/ui5trail");
+
             $.ajax({
-                url:"https://ba291dc8trial-dev-employee-data-management-srv.cfapps.us10-001.hana.ondemand.com/odata/v4/edmservice/Employees",
+                url:sBaseUrl+"/odata/v4/edmservice/Employees",
                 method:"POST",
                 contentType:"application/json",
                 data:JSON.stringify(newemploye),
@@ -86,6 +88,28 @@ sap.ui.define([
                   }
             })
             console.log(newemploye);
+
+
+            let oView = this.getView();
+            oView.byId("formtittleID").setSelectedKey("")
+            oView.byId("formfirstnameID").setValue("");
+            oView.byId("formlastnameID").setValue("");
+            oView.byId("formbirthdateID").setValue("");
+            oView.byId("formaddressID").setValue("");
+            oView.byId("formcityID").setValue("");
+            oView.byId("formcountryID").setValue("");
+            oView.byId("formdepartmentID").setValue("");
+            oView.byId("formhiredateID").setValue("");
+
+            let displayitems= oView.getModel().getProperty("/displayitems");
+            oView.byId("submitbuttonID").setEnabled(!displayitems);
+            oView.byId("formsavebuttonID").setVisible(displayitems);
+            oView.byId("formeditbuttonID").setVisible(!displayitems);
+            oView.getModel().setProperty("/displayitems", false);
+
+            this.getOwnerComponent().getRouter().navTo("TargetView2");
+            // to refresh the backend data 
+            this.getView().getModel().refresh(true);
         },
         onGotoTable: function () {
             this.getOwnerComponent().getRouter().navTo("TargetView2");

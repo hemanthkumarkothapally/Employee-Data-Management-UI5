@@ -31,7 +31,7 @@
         "edm-display": {
           "semanticObject": "edm",
           "action": "display",
-          "title": "{{edm-display.flpTitle}}",
+          "title": "Employee details",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
@@ -83,6 +83,12 @@
           "operationMode": "Server",
           "autoExpandSelect": true,
           "earlyRequests": true
+        }
+      },
+      "fragmentformModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {
+          "defaultBindingMode": "TwoWay"
         }
       }
     },

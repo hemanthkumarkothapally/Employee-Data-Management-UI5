@@ -7,7 +7,7 @@
         <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
     </edmx:Reference>
     <edmx:DataServices>
-        <Schema Namespace="EDMservice" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Schema Namespace="edmservice" xmlns="http://docs.oasis-open.org/odata/ns/edm">
             <Annotation Term="Core.Links">
                 <Collection>
                     <Record>
@@ -17,7 +17,7 @@
                 </Collection>
             </Annotation>
             <EntityContainer Name="EntityContainer">
-                <EntitySet Name="Employees" EntityType="EDMservice.Employees"/>
+                <EntitySet Name="Employees" EntityType="edmservice.Employees"/>
             </EntityContainer>
             <EntityType Name="Employees">
                 <Key>
@@ -34,7 +34,7 @@
                 <Property Name="Department" Type="Edm.String" MaxLength="30"/>
                 <Property Name="HireDate" Type="Edm.Date"/>
             </EntityType>
-            <Annotations Target="EDMservice.Employees/ID">
+            <Annotations Target="edmservice.Employees/ID">
                 <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
             </Annotations>
         </Schema>

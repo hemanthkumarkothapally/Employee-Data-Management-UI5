@@ -1,4 +1,3 @@
-<!-- MyDialog.fragment.xml -->
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
 xmlns:table="sap.ui.table"
     xmlns:f="sap.f"
@@ -6,32 +5,100 @@ xmlns:table="sap.ui.table"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
 >
-    <VBox >
-    <form:SimpleForm
-        editable="true"
-        layout="ResponsiveGridLayout"
-        width="100%"
-        title="Simple Employee Form">
+<Dialog >
+<form:SimpleForm class="employeeform" id="fragementid"  layout="ResponsiveGridLayout" singleContainerFullSize="false" editable="true" width="98%">
+            <form:content>
+             <Label
+                    text="Tittle "
+                    required="true"
+                />
+                <ComboBox
+                    placeholder="sellect your tittle"
+                    width="20%"
+                    selectedKey="{fragmentformModel>/Title}"
+                >
+                    <items>
+                        <core:Item
+                            key="Mr"
+                            text="Mr"
+                        />
+                        <core:Item
+                            key="Miss"
+                            text="Miss"
+                        />
+                    </items>
+                </ComboBox>
+                <Label
+                    text="First Name "
+                    required="true"
+                />
+                <Input
+                    placeholder="Enter your first name"
+                    value="{fragmentformModel>/FirstName}"
+                />
+                <Label
+                    text="Last Name "
+                    required="true"
+                />
+                <Input
+                    placeholder="Enter your last name"
+                    value="{fragmentformModel>/LastName}"
+                />
+                <Label
+                    text="BirthDate "
+                    required="true"
+                />
+                <DatePicker
+                    displayFormat="yyyy-MM-dd"
+                    valueFormat="yyyy-MM-dd"
+                    value="{fragmentformModel>/BirthDate}"
+                />
+                <Label
+                    text="Address "
+                    required="true"
+                />
+                <Input
+                    placeholder="address"
+                    value="{fragmentformModel>/Address}"
+                />
+                <Input
+                    placeholder="City"  
+                    value="{fragmentformModel>/City}"
+                 />
+                <Input
+                    placeholder="Country"
+                    value="{fragmentformModel>/Country}"
+                />
+                <Label
+                    text="Department "
+                    required="true"
+                />
+                <Input
+                    placeholder="Enter your department"
+                    value="{fragmentformModel>/Department}"
+                    
+                />
+                <Label
+                    text="HireDate "
+                    required="true"
 
-        <form:content>
-            <Label text="Name" />
-            <Input value="{/name}" />
-
-            <Label text="Email" />
-            <Input value="{/email}" />
-
-            <Label text="Department" />
-            <Input value="{/department}" />
-
-            <Label text="Hire Date" />
-            <DatePicker value="{/hireDate}" />
-
-            <Button
+                />
+                <DatePicker
+                displayFormat="yyyy-MM-dd"
+                    valueFormat="yyyy-MM-dd"
+                    value="{fragmentformModel>/HireDate}"
+                />
+            </form:content>
+            </form:SimpleForm>
+            <beginButton><Button
                 text="Save"
                 type="Emphasized"
-                press="onSaveSimpleForm" />
-        </form:content>
-    </form:SimpleForm>
-
-    </VBox>
+                press="onUpdateData" /></beginButton>
+            <endButton><Button
+                text="Cancel"
+                type="Reject"
+                press="oncancel" /></endButton>
+</Dialog>
+    
+            
 </core:FragmentDefinition>
