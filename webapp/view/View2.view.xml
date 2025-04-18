@@ -47,43 +47,13 @@
                         text="SAP BTP"
                     />
                 </l:VerticalLayout>
-                <ToolbarSpacer />
-                <!-- <ComboBox id="searchfilter" items="{path:'/Employees'}" selectionChange="onselectingname"> 
-                <core:Item key="{ID}" text="{FirstName}"></core:Item>
-                </ComboBox> -->
-                <f:content>
-                <filterbar:FilterBar
-                    id="filterbar" persistencyKey="myPersKey" useToolbar="false" search="ongoSearch" 
-                >
-                    <filterbar:filterGroupItems>
-                        <filterbar:FilterGroupItem
-                            name="Name"
-                            label="Name"
-                            groupName="group1"
-                            visibleInFilterBar="true"
-                        >
-                            <filterbar:control>
-                                <ComboBox
-                                    id="searchfilter"
-                                    items="{path:'/Employees'}"
-                                >
-                                    <core:Item
-                                        key="{ID}"
-                                        text="{FirstName}"
-                                    />
-                                </ComboBox>
-                            </filterbar:control>
-                        </filterbar:FilterGroupItem>
-                    </filterbar:filterGroupItems>
-                </filterbar:FilterBar>
-                </f:content>
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
             <Table
                 id="employeetable"
                 items="{path:'/Employees'}"
-                headerText="Employees ({= ${Employees}.length })"
+                headerText="Employees"
             >
                 <columns>
                     <Column>
@@ -122,12 +92,10 @@
                     >
                         <cells>
                             <Text text="{ID}" />
-                            <!-- <Text
-                                text="{=${Title}+' . '+${LastName}+' '+${FirstName}}"
-                            /> -->
                             <Text
-                                text="{FirstName}"
+                                text="{=${Title}+' . '+${LastName}+' '+${FirstName}}"
                             />
+                            
                             <Text text="{BirthDate}" />
                             <Text
                                 text="{parts:[{path:'Address'},{path:'City'},{path:'Country'}], formatter:'.formatAddress'}"

@@ -62,8 +62,11 @@ sap.ui.define([
                 oView.byId("passwordid").setValue("");
                 MessageBox.success(username + " you are sucessfully logged.",{
                     onClose:function(action){
+                        sap.ui.core.BusyIndicator.show(0);
                         this.getOwnerComponent().getRouter().navTo("TargetView2");
-
+                        setTimeout(() => {
+                            sap.ui.core.BusyIndicator.hide();
+                        }, 1000);
                     }.bind(this)
                 
                 });

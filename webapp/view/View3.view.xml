@@ -96,6 +96,16 @@
                     valueFormat="yyyy-MM-dd"
                     value="{/employeedata/HireDate}"
                 />
+
+                <Button
+                    id="formsavebuttonID"
+                    class="buttonclass"
+                    text="save"
+                    icon="sap-icon://notes"
+                    type="Success"
+                    press="onsaveform"
+                    visible="true"
+                />
             </form:content>
             </form:SimpleForm>
             <form:SimpleForm class="employeeform" layout="ResponsiveGridLayout" singleContainerFullSize="false" visible="{/displayitems}" width="98%">
@@ -148,205 +158,7 @@
                 <Text
                     text="{/employeedata/HireDate}"
                 />
-            </form:content>
-            </form:SimpleForm>
-            <!-- <HBox
-                alignItems="Center"
-                alignContent="SpaceAround"
-                columnGap="2rem"
-            >
-                <Label
-                id="tittleID"
-                    text="Tittle :"
-                    required="true"
-                />
-                <Text
-                    id="formtexttittleID"
-                    text="{/employeedata/Title}"
-                    visible="{/displayitems}"
-                />
-                <ComboBox
-                    placeholder="sellect your tittle"
-                    width="20%"
-                    id="formtittleID"
-                    visible="{= !${/displayitems}}"
-                >
-                    <items>
-                        <core:Item
-                            key="01"
-                            text="Mr"
-                        />
-                        <core:Item
-                            key="02"
-                            text="Miss"
-                        />
-                    </items>
-                </ComboBox>
-                <ObjectAttribute title="First Name " text="{/employeedata/Title}" visible="true"></ObjectAttribute>
 
-            </HBox>
-            <HBox
-                alignItems="Center"
-                alignContent="SpaceAround"
-                columnGap="2rem"
-            >
-                <Label
-                    text="First Name :"
-                    required="true"
-                />
-                <Text
-                    id="formtextfirstnameID"
-                    text="{/employeedata/FirstName}"
-                    visible="{/displayitems}"
-                />
-                <Input
-                    id="formfirstnameID"
-                    placeholder="Enter your first name"
-                    visible="{= !${/displayitems}}"
-                />
-                <ObjectAttribute title="First Name " text="{/employeedata/FirstName}" visible="true"></ObjectAttribute>
-            </HBox>
-            <HBox
-                alignItems="Center"
-                alignContent="SpaceAround"
-                columnGap="2rem"
-            >
-                <Label
-                    text="Last Name :"
-                    required="true"
-                />
-                <Text
-                    id="formtextlastnameID"
-                    text="{/employeedata/LastName}"
-                    visible="{= ${/displayitems}}"
-                />
-                <Input
-                    id="formlastnameID"
-                    placeholder="Enter your last name"
-                    visible="{= !${/displayitems}}"
-                />
-                <ObjectAttribute title="First Name " text="{/employeedata/LastName}" visible="true"></ObjectAttribute>
-
-            </HBox>
-            <HBox
-                alignItems="Center"
-                alignContent="SpaceAround"
-                columnGap="2rem"
-            >
-                <Label
-                    text="BirthDate :"
-                    required="true"
-                />
-                <Text
-                    id="formtextbirthdateID"
-                    text="{/employeedata/BirthDate}"
-                    visible="{/displayitems}"
-                />
-                <DatePicker
-                    id="formbirthdateID"
-                    visible="{= !${/displayitems}}"
-                    value="{
-						'path':'/employeedata/BirthDate',
-						'type':'sap.ui.model.type.Date',
-						'formatOptions': {
-							'pattern': 'yyyy-MM-dd'
-						}
-					}"
-                />
-                <ObjectAttribute title="First Name " text="{/employeedata/BirthDate}" visible="true"></ObjectAttribute>
-
-            </HBox>
-            <HBox
-                alignItems="Center"
-                alignContent="SpaceAround"
-                columnGap="2rem"
-            >
-                <Label
-                    text="Address :"
-                    required="true"
-                />
-                <Text
-                    id="formtextaddressID"
-                    text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}"
-                    visible="{/displayitems}"
-                />
-                <Input
-                    id="formaddressID"
-                    placeholder="address"
-                    visible="{= !${/displayitems}}"
-                />
-                <Input
-                    id="formcityID"
-                    placeholder="City"
-                    visible="{= !${/displayitems}}"
-                />
-                <Input
-                    id="formcountryID"
-                    placeholder="Country"
-                    visible="{= !${/displayitems}}"
-                />
-                <ObjectAttribute title="First Name " text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}" visible="true"></ObjectAttribute>
-
-            </HBox>
-            <HBox
-                alignItems="Center"
-                alignContent="SpaceAround"
-                columnGap="2rem"
-            >
-                <Label
-                    text="Department :"
-                    required="true"
-                />
-                <Text
-                    id="formtextdepartmentID"
-                    text="{/employeedata/Department}"
-                    visible="{/displayitems}"
-                />
-                <Input
-                    id="formdepartmentID"
-                    placeholder="Enter your department"
-                    visible="{= !${/displayitems}}"
-                />
-                <ObjectAttribute title="First Name " text="{/employeedata/Department}" visible="true"></ObjectAttribute>
-
-            </HBox>
-            <HBox
-                alignItems="Center"
-                alignContent="SpaceAround"
-                columnGap="2rem"
-            >
-                <Label
-                    text="HireDate :"
-                    required="true"
-                />
-                <Text
-                    id="formtexthiredateID"
-                    text="{/employeedata/HireDate}"
-                    visible="{/displayitems}"
-                />
-                <DatePicker
-                    id="formhiredateID"
-                    visible="{= !${/displayitems}}"
-                    value="{
-						'path':'/employeedata/HireDate',
-						'type':'sap.ui.model.type.Date',
-						'formatOptions': {
-							'pattern': 'yyyy-MM-dd'
-						}
-					}"
-                />
-                <ObjectAttribute title="First Name "  text="{/employeedata/HireDate}" visible="true"></ObjectAttribute>
-            </HBox> -->
-            <l:HorizontalLayout>
-                <Button
-                    id="formsavebuttonID"
-                    class="buttonclass"
-                    text="save"
-                    icon="sap-icon://notes"
-                    type="Success"
-                    press="onsaveform"
-                    visible="true"
-                />
                 <Button
                     id="formeditbuttonID"
                     class="buttonclass"
@@ -356,7 +168,8 @@
                     press="oneditform"
                     visible="false"
                 />
-            </l:HorizontalLayout>
+            </form:content>
+            </form:SimpleForm>
         <footer>
             <Bar>
                 <contentRight>

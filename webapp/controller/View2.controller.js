@@ -12,41 +12,29 @@ sap.ui.define([
 
     return Controller.extend("com.trail.ui5trail.controller.View2", {
         onInit() {
-
+           
+        },
+        onAfterRendering: function(){
+            this.byId("employeetable").getBinding("items").refresh();
         },
         formatAddress: function (Address, City, Country) {
             let aAddress = Address + "," + City + "," + Country;
             return aAddress;
         },
         onAddemployee: function () {
+            sap.ui.core.BusyIndicator.show(0);
+                        setTimeout(() => {
+                            sap.ui.core.BusyIndicator.hide();
+                        }, 500);
             this.getOwnerComponent().getRouter().navTo("TargetView3");
-        },
-        onemployeeselection: function (oEvent) {
-            let event = oEvent.getParameter("listItem").getBindingContext().getObject().FirstName;
-            MessageBox.confirm(event + " do you want to open.", {
-                onClose: function (action) {
-                    if (action === MessageBox.Action.OK) {
-                        this.fragment = sap.ui.xmlfragment("com.trail.ui5trail.view.form", this);
-                        this.getView().addDependent(this.fragment);
-                        this.fragment.open();
-                    }
-                }.bind(this)
-            });
-
         },
         ongoSearch: function () {
             const oComboBox = this.getView().byId("searchfilter");
             const oSelectedItem = oComboBox.getSelectedItem();
-
-            if (!oSelectedItem) {
-                console.warn("No ComboBox item selected.");
-                return;
-            }
-
             const sSelectedName = oSelectedItem.getKey(); // This is the FirstName
             console.log("Selected name:", sSelectedName);
 
-            const oFilter = new sap.ui.model.Filter("ID", sap.ui.model.FilterOperator.EQ, sSelectedName);
+            const oFilter = new sap.ui.model.Filter('ID', sap.ui.model.FilterOperator.EQ, sSelectedName);
 
             const oTableBinding = this.getView().byId("employeetable").getBinding("items");
 
@@ -56,9 +44,6 @@ sap.ui.define([
                 console.warn("Table binding not found.");
             }
         },
-        // getBaseUrl: function(){
-        //     return sap.ui.require.toUrl("com/trail/ui5trail");
-        // },
         onemployeepress: function (oEvent) {
             MessageBox.confirm("Do you want to Edit or Delete the record..", {
                 actions: ["Edit", "Delete", sap.m.MessageBox.Action.CANCEL],
@@ -94,8 +79,7 @@ sap.ui.define([
                             method: "DELETE"
                         });
                         MessageToast.show("Deleted Sucessfully");
-                        oEvent.getSource().getModel().refresh(true);
-
+                        this.byId("employeetable").getBinding("items").refresh();
 
                     }
                 }.bind(this)
@@ -119,7 +103,8 @@ sap.ui.define([
                   error: function(error) {
                     MessageToast.show("Error submitting data");
                   }
-            })
+            });
+            this.byId("employeetable").getBinding("items").refresh();
             
         },
         oncancel:function(){

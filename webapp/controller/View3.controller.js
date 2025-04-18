@@ -39,8 +39,12 @@ sap.ui.define([
 
             }
             else {
-                MessageBox.success(formfirstname+" " + formlastname + " Data is sucessfully saved..");
-                let employeeData = oView.getModel().getProperty("/employeedata");
+                MessageBox.success(formfirstname+" " + formlastname + " Data is sucessfully saved..",{
+                    actions:[sap.m.MessageBox.Action.OK,sap.m.MessageBox.Action.CANCEL],
+                    emphasizedAction:sap.m.MessageBox.Action.OK,
+                    onClose:function(action){
+                if(action==sap.m.MessageBox.Action.OK){
+                                            let employeeData = oView.getModel().getProperty("/employeedata");
                 let displayitems= oView.getModel().getProperty("/displayitems");
 
                 employeeData.Title = formtittle;
@@ -58,20 +62,54 @@ sap.ui.define([
                 oView.byId("formsavebuttonID").setVisible(displayitems);
                 oView.byId("formeditbuttonID").setVisible(!displayitems);
                 oView.getModel().setProperty("/displayitems", true);
+                }
+                    }.bind(this)
+                });
+                // let employeeData = oView.getModel().getProperty("/employeedata");
+                // let displayitems= oView.getModel().getProperty("/displayitems");
+
+                // employeeData.Title = formtittle;
+                // employeeData.FirstName = formfirstname;
+                // employeeData.LastName = formlastname;
+                // employeeData.BirthDate = formbirthdate;
+                // employeeData.Address = formaddress;
+                // employeeData.City = formcity;
+                // employeeData.Country = formcountry;
+                // employeeData.Department = formdepartment;
+                // employeeData.HireDate = formhiredate;
+
+                // oView.getModel().setProperty("/employeedata", employeeData);
+                // oView.byId("submitbuttonID").setEnabled(!displayitems);
+                // oView.byId("formsavebuttonID").setVisible(displayitems);
+                // oView.byId("formeditbuttonID").setVisible(!displayitems);
+                // oView.getModel().setProperty("/displayitems", true);
             }
             
 
         },
         oneditform: function () {
+            MessageBox.success(" Do You Want To Edit ..",{
+                actions:[sap.m.MessageBox.Action.OK,sap.m.MessageBox.Action.CANCEL],
+                emphasizedAction:sap.m.MessageBox.Action.OK,
+                onClose:function(action){
+            if(action==sap.m.MessageBox.Action.OK){
             let oView = this.getView();
             let displayitems= oView.getModel().getProperty("/displayitems");
             oView.byId("submitbuttonID").setEnabled(!displayitems);
             oView.byId("formsavebuttonID").setVisible(displayitems);
             oView.byId("formeditbuttonID").setVisible(!displayitems);
             oView.getModel().setProperty("/displayitems", false);
+                }
+         }.bind(this) });
 
         },
         onSubmitform: function(){
+            MessageBox.success(" Do You Want To Submit..",{
+                actions:[sap.m.MessageBox.Action.OK,sap.m.MessageBox.Action.CANCEL],
+                emphasizedAction:sap.m.MessageBox.Action.OK,
+                onClose:function(action){
+            if(action==sap.m.MessageBox.Action.OK){
+            
             let newemploye = this.getView().getModel().oData.employeedata;
             var sBaseUrl = sap.ui.require.toUrl("com/trail/ui5trail");
 
@@ -107,11 +145,22 @@ sap.ui.define([
             oView.byId("formeditbuttonID").setVisible(!displayitems);
             oView.getModel().setProperty("/displayitems", false);
 
-            this.getOwnerComponent().getRouter().navTo("TargetView2");
-            // to refresh the backend data 
-            this.getView().getModel().refresh(true);
+            sap.ui.core.BusyIndicator.show(0);
+            this.getOwnerComponent().getRouter().navTo("TargetView2",{refresh:true});
+                        setTimeout(() => {
+                            sap.ui.core.BusyIndicator.hide();
+                        }, 800);
+            
+            
+        }
+    }.bind(this) });
+
         },
         onGotoTable: function () {
+            sap.ui.core.BusyIndicator.show(0);
+                        setTimeout(() => {
+                            sap.ui.core.BusyIndicator.hide();
+                        }, 800);
             this.getOwnerComponent().getRouter().navTo("TargetView2");
         }
     });
