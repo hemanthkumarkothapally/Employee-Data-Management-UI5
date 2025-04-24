@@ -11,6 +11,10 @@ sap.ui.define([
                 captcha:this.getrandomcaptcha(),
                 credentials: [
                     {
+                        username: "harish",
+                        password: "harish123"
+                    },
+                    {
                         username: "hemanth",
                         password: "hemanth123"
                     },

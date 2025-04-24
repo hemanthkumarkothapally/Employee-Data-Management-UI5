@@ -2,9 +2,9 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:l="sap.ui.layout"
     xmlns="sap.m">
-    <Page id="page1" class="page1style" title="{i18n>title}" >
-        <l:VerticalLayout id="loginbox" class="loginboxstyle">
-            <Title text="log in" level="H6"></Title>
+    <Page id="page1" class="page1style"  title="{i18n>title}" >
+        <l:VerticalLayout id="loginbox"  class="loginboxstyle" >
+            <Title text="log in:" level="H6"></Title>
             <Label id="usernamelableid" text="User Name" required="true" width="30rem"></Label>
             <Input id="usernameid" placeholder=" Enter your username" width="30rem" ></Input>
             <Label id="passwordlableid" text="Password" required="true" width="30rem"></Label>

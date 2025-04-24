@@ -14,9 +14,6 @@ sap.ui.define([
         onInit() {
            
         },
-        onAfterRendering: function(){
-            this.byId("employeetable").getBinding("items").refresh();
-        },
         formatAddress: function (Address, City, Country) {
             let aAddress = Address + "," + City + "," + Country;
             return aAddress;
