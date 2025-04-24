@@ -14,6 +14,12 @@ sap.ui.define([
         onInit() {
            
         },
+        onAfterRendering: function () {
+            var oTable = this.byId("employeetable");
+            if (oTable) {
+                oTable.getBinding("items").refresh();
+            }
+        },        
         formatAddress: function (Address, City, Country) {
             let aAddress = Address + "," + City + "," + Country;
             return aAddress;
@@ -81,6 +87,7 @@ sap.ui.define([
                     }
                 }.bind(this)
             });
+            this.byId("employeetable").getBinding("items").refresh();
 
         },
         onUpdateData: function () {
