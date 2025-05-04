@@ -16,7 +16,7 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - url: https://ba291dc8trial-dev-employee-data-management-srv.cfapps.us10-001.hana.ondemand.com/
+          - url: https://4d476018trial-dev-employee-data-management-srv.cfapps.us10-001.hana.ondemand.com/
             authenticationType: NoAuthentication
             path: /odata
     - name: fiori-tools-appreload

@@ -13,163 +13,184 @@
         title="Employee form"
         backgroundDesign="Transparent"
     >
-        
-            <form:SimpleForm class="employeeform" visible="{= !${/displayitems}}" layout="ResponsiveGridLayout" singleContainerFullSize="false" editable="true" width="98%">
-            <form:content>
-             <Label
-                    text="Tittle "
-                    required="true"
-                />
-                <ComboBox
-                    placeholder="sellect your tittle"
-                    width="20%"
-                    id="formtittleID"
-                >
-                    <items>
-                        <core:Item
-                            key="01"
-                            text="Mr"
-                        />
-                        <core:Item
-                            key="02"
-                            text="Miss"
-                        />
-                    </items>
-                </ComboBox>
-                <Label
-                    text="First Name "
-                    required="true"
-                />
-                <Input
-                    id="formfirstnameID"
-                    placeholder="Enter your first name"
-                    value="{/employeedata/FirstName}"
-                />
-                <Label
-                    text="Last Name "
-                    required="true"
-                />
-                <Input
-                    id="formlastnameID"
-                    placeholder="Enter your last name"
-                />
-                <Label
-                    text="BirthDate "
-                    required="true"
-                />
-                <DatePicker
-                    id="formbirthdateID"
-                    displayFormat="yyyy-MM-dd"
-                    valueFormat="yyyy-MM-dd"
-                    value="{/employeedata/BirthDate}"
-                />
-                <Label
-                    text="Address "
-                    required="true"
-                />
-                <Input
-                    id="formaddressID"
-                    placeholder="address"
-                />
-                <Input
-                    id="formcityID"
-                    placeholder="City"                />
-                <Input
-                    id="formcountryID"
-                    placeholder="Country"
-                />
-                <Label
-                    text="Department "
-                    required="true"
-                />
-                <Input
-                    id="formdepartmentID"
-                    placeholder="Enter your department"
-                />
-                <Label
-                    text="HireDate "
-                    required="true"
-                />
-                <DatePicker
-                    id="formhiredateID"
-                    displayFormat="yyyy-MM-dd"
-                    valueFormat="yyyy-MM-dd"
-                    value="{/employeedata/HireDate}"
-                />
-
-                <Button
-                    id="formsavebuttonID"
-                    class="buttonclass"
-                    text="save"
-                    icon="sap-icon://notes"
-                    type="Success"
-                    press="onsaveform"
-                    visible="true"
-                />
-            </form:content>
+        <HBox
+            width="100%"
+            justifyContent="Center"
+        >
+            <form:SimpleForm
+                class="employeeform1"
+                visible="{= !${/displayitems}}"
+                layout="ResponsiveGridLayout"
+                singleContainerFullSize="false"
+                editable="true"
+                width="98%"
+            >
+                <form:content>
+                    <Label
+                        text="Tittle "
+                        required="true"
+                    />
+                    <ComboBox
+                        placeholder="sellect your tittle"
+                        width="20%"
+                        id="formtittleID"
+                    >
+                        <items>
+                            <core:Item
+                                key="01"
+                                text="Mr"
+                            />
+                            <core:Item
+                                key="02"
+                                text="Miss"
+                            />
+                        </items>
+                    </ComboBox>
+                    <Label
+                        text="First Name "
+                        required="true"
+                    />
+                    <Input
+                        id="formfirstnameID"
+                        placeholder="Enter your first name"
+                        value="{/employeedata/FirstName}"
+                    />
+                    <Label
+                        text="Last Name "
+                        required="true"
+                    />
+                    <Input
+                        id="formlastnameID"
+                        placeholder="Enter your last name"
+                    />
+                    <Label
+                        text="BirthDate "
+                        required="true"
+                    />
+                    <DatePicker
+                        id="formbirthdateID"
+                        displayFormat="yyyy-MM-dd"
+                        valueFormat="yyyy-MM-dd"
+                        value="{/employeedata/BirthDate}"
+                    />
+                    <Label
+                        text="Address "
+                        required="true"
+                    />
+                    <Input
+                        id="formaddressID"
+                        placeholder="address"
+                    />
+                    <Input
+                        id="formcityID"
+                        placeholder="City"
+                    />
+                    <Input
+                        id="formcountryID"
+                        placeholder="Country"
+                    />
+                    <Label
+                        text="Department "
+                        required="true"
+                    />
+                    <Input
+                        id="formdepartmentID"
+                        placeholder="Enter your department"
+                    />
+                    <Label
+                        text="HireDate "
+                        required="true"
+                    />
+                    <DatePicker
+                        id="formhiredateID"
+                        displayFormat="yyyy-MM-dd"
+                        valueFormat="yyyy-MM-dd"
+                        value="{/employeedata/HireDate}"
+                    />
+                </form:content>
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <Button
+                        id="formsavebuttonID"
+                        class="buttonclass"
+                        text="save"
+                        icon="sap-icon://notes"
+                        type="Success"
+                        press="onsaveform"
+                        visible="true"
+                    />
+                </Toolbar>
             </form:SimpleForm>
-            <form:SimpleForm class="employeeform" layout="ResponsiveGridLayout" singleContainerFullSize="false" visible="{/displayitems}" width="98%">
-            <form:content>
-             <Label
-                    text="Tittle :"
-                    required="true"
-                />
-                <Text
-                    text="{/employeedata/Title}"                />
-                <Label
-                    text="First Name"
-                    required="true"
-                />
-                <Text
-                    text="{/employeedata/FirstName}"
-                />
-                <Label
-                    text="Last Name"
-                    required="true"
-                />
-                <Text
-                    text="{/employeedata/LastName}"
-                />
-                <Label
-                    text="BirthDate"
-                    required="true"
-                />
-                <Text
-                    text="{/employeedata/BirthDate}"
-                />
-                <Label
-                    text="Address "
-                    required="true"
-                />
-                <Text
-                    text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}"
-                />
-                <Label
-                    text="Department "
-                    required="true"
-                />
-                <Text
-                    text="{/employeedata/Department}"
-                />
-                <Label
-                    text="HireDate "
-                    required="true"
-                />
-                <Text
-                    text="{/employeedata/HireDate}"
-                />
 
-                <Button
-                    id="formeditbuttonID"
-                    class="buttonclass"
-                    text="Edit"
-                    icon="sap-icon://cancel"
-                    type="Attention"
-                    press="oneditform"
-                    visible="false"
-                />
-            </form:content>
+            <form:SimpleForm
+                class="employeeform"
+                layout="ResponsiveGridLayout"
+                singleContainerFullSize="false"
+                visible="{/displayitems}"
+                width="98%"
+            >
+                <form:content>
+                <!-- <VBox >
+                <ObjectAttribute title="Tittle" text="{/employeedata/Title}"></ObjectAttribute>
+                <ObjectAttribute title="First Name" text="{/employeedata/FirstName}"></ObjectAttribute>
+                <ObjectAttribute title="Last Name" text="{/employeedata/LastName}"></ObjectAttribute>
+                <ObjectAttribute title="BirthDate" text="{/employeedata/BirthDate}"></ObjectAttribute>
+                <ObjectAttribute title="Address" text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}"></ObjectAttribute>
+                <ObjectAttribute title="Department" text="{/employeedata/Department}"></ObjectAttribute>
+                <ObjectAttribute title="HireDate" text="{/employeedata/HireDate}"></ObjectAttribute>
+                </VBox> -->
+                    <Label
+                        text="Tittle :"
+                        required="true"
+                    />
+                    <Text text="{/employeedata/Title}" />
+                    <Label
+                        text="First Name"
+                        required="true"
+                    />
+                    <Text text="{/employeedata/FirstName}" />
+                    <Label
+                        text="Last Name"
+                        required="true"
+                    />
+                    <Text text="{/employeedata/LastName}" />
+                    <Label
+                        text="BirthDate"
+                        required="true"
+                    />
+                    <Text text="{/employeedata/BirthDate}" />
+                    <Label
+                        text="Address "
+                        required="true"
+                    />
+                    <Text
+                        text="{= ${/employeedata/Address}+', '+${/employeedata/City} +', '+ ${/employeedata/Country}}"
+                    />
+                    <Label
+                        text="Department "
+                        required="true"
+                    />
+                    <Text text="{/employeedata/Department}" />
+                    <Label
+                        text="HireDate "
+                        required="true"
+                    />
+                    <Text text="{/employeedata/HireDate}" />
+                </form:content>
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <Button
+                        id="formeditbuttonID"
+                        class="buttonclass"
+                        text="Edit"
+                        icon="sap-icon://cancel"
+                        type="Attention"
+                        press="oneditform"
+                        visible="false"
+                    />
+                </Toolbar>
             </form:SimpleForm>
+        </HBox>
         <footer>
             <Bar>
                 <contentRight>

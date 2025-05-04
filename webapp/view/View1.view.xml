@@ -3,19 +3,38 @@
     xmlns:l="sap.ui.layout"
     xmlns="sap.m">
     <Page id="page1" class="page1style"  title="{i18n>title}" >
-        <l:VerticalLayout id="loginbox"  class="loginboxstyle" >
-            <Title text="log in:" level="H6"></Title>
-            <Label id="usernamelableid" text="User Name" required="true" width="30rem"></Label>
-            <Input id="usernameid" placeholder=" Enter your username" width="30rem" ></Input>
-            <Label id="passwordlableid" text="Password" required="true" width="30rem"></Label>
-            <Input id="passwordid" placeholder="Enter your Password "  type="Password" width="30rem" showClearIcon="true">
-            </Input>
-            <ObjectAttribute id="randomcaptchaId" title="CAPTCHA " text="{/captcha}" textDirection="Inherit" >
-            </ObjectAttribute>
-            <Input id="captchaId" placeholder="enter captcha" width="10rem"></Input>
-            <CheckBox text="Remenber me.."></CheckBox>
-            
-            <Button id="button" type="Accept" text="Submit" press="onsubmitlogin"></Button>
-        </l:VerticalLayout>
+<HBox
+        width="100%"
+        justifyContent="Center">
+        <form:SimpleForm
+    id="loginForm"
+    editable="true"
+    layout="ResponsiveGridLayout"
+    title="Login"
+    labelSpanXL="3" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+    adjustLabelSpan="false"
+    emptySpanXL="4" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+    columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"
+    class="sapUiResponsiveMargin">
+
+    <form:content>
+        <Label text="Username" required="true"/>
+        <Input id="usernameid" placeholder="Enter your username" width="100%" />
+
+        <Label text="Password" required="true"/>
+        <Input id="passwordid" placeholder="Enter your password" type="Password" showClearIcon="true" width="100%" />
+        
+        <Label text="CAPTCHA" required="true"/>
+        <Text id="randomcaptchaId" text="{/captcha}" class="sapUiSmallMarginBottom"/>
+        <Input id="captchaId" placeholder="Enter CAPTCHA" width="10rem" />
+
+        <Toolbar>
+            <ToolbarSpacer/>
+            <Button id="loginButton" type="Emphasized" text="Login" press="onsubmitlogin"/>
+        </Toolbar>
+    </form:content>
+</form:SimpleForm>
+</HBox>
+
     </Page>
 </mvc:View>

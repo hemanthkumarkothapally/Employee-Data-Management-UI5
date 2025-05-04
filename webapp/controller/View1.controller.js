@@ -70,7 +70,7 @@ sap.ui.define([
                         this.getOwnerComponent().getRouter().navTo("TargetView2");
                         setTimeout(() => {
                             sap.ui.core.BusyIndicator.hide();
-                        }, 1000);
+                        }, 1500);
                     }.bind(this)
                 
                 });

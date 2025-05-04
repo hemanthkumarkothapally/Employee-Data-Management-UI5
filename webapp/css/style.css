@@ -10,7 +10,6 @@
     border-style: solid;
     border-radius: 1px;
     padding: 20px;
-    margin-left: 25%;
     background-color: aliceblue;
 }
 .detailsclass{
@@ -23,8 +22,4 @@
 .simpleformclass{
     background-color: rgb(194, 252, 252);
     margin: 2rem;
-}
-.employeeform{
-
-    margin: 10px;
 }

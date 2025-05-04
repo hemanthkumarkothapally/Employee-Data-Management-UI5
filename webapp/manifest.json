@@ -76,15 +76,19 @@
           "bundleName": "com.trail.ui5trail.i18n.i18n"
         }
       },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {}
-      },
       "fragmentformModel": {
         "type": "sap.ui.model.json.JSONModel",
         "settings": {
           "defaultBindingMode": "TwoWay"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
         }
       }
     },
